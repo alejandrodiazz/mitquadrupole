@@ -17,13 +17,14 @@ h = 15 						# constant dependent on stability region- 1st: 10-20, 2nd:.73-1.43
 # q = 3.23
 # h = 1 						# constant dependent on stability region- 1st: 10-20, 2nd:.73-1.43
 
-ez = 5 * 1.60218*10**-19	# making assumption of 5 electron volts & convert to joules
 # m = 4.981* 10**-25		# 300 amu
 m = 1.66054 * 10**-25		# 100 amu
 # m = 6.64216*10**-26		# 40amu
 # m = 1.82659 * 10**-27		# 1.1 amu
 # m = 1.66054* 10**-27		# 1 amu
 
+
+ez = 5 * 1.60218*10**-19	# making assumption of 5 electron volts & convert to joules
 e = 1.60217662*10**-19
 vz = 2*(ez/m)**(1/2)		# axial ion velocity
 resolutions = list()
