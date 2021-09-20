@@ -78,7 +78,7 @@ def evaluate(frequency, L, r0, m, e, ez, vz, h, q, a):
 	# plt.show()
 
 
-evaluate(frequency= 2650000, L = .12, r0 = .002, m = m, e=e, ez=ez, vz=vz, h=h, q=q, a=a)
+evaluate(frequency= 2650000, L = .1, r0 = .002, m = m, e=e, ez=ez, vz=vz, h=h, q=q, a=a)
 # evaluate(frequency= 1440000, L = .08, r0 = .002, m = m, e=e, ez=ez, vz=vz, h=h, q=q, a=a)
 
 

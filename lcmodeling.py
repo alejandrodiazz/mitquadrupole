@@ -24,6 +24,16 @@ print("Actual Likely Total Capacitance: ", capacitance_of_one_rod*10)
 actual_capacitance = capacitance_of_one_rod*10
 
 
+# a lower inductance and/or capacitance means a higher frequency can be achieved/used for resonance
+relative_permeability_of_core = 1
+n2 = 2			# number of turns
+diameter = .0273	# It is recommended that the coil diameter is 50% to 80% coil length for optimum Q and those are dependant on how much space can the coil take up. 
+radius = diameter/2	# 
+l = .05			# length of winding
+L = relative_permeability_of_core * ( n2**2 * math.pi**2 * radius**2 / l ) * 0.00000126
+print("inductance1: ", L)
+
+
 
 # a lower inductance and/or capacitance means a higher frequency can be achieved/used for resonance
 relative_permeability_of_core = 1
@@ -32,7 +42,7 @@ diameter = .0273	# It is recommended that the coil diameter is 50% to 80% coil l
 radius = diameter/2	# 
 l = .05			# length of winding
 L = relative_permeability_of_core * ( n2**2 * math.pi**2 * radius**2 / l ) * 0.00000126
-print("inductance1: ", L)
+print("inductance2: ", L)
 # L = 25 * 10**-6 			# measured in henries
 C = actual_capacitance 	# probably around 50pF
 
