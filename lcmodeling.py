@@ -108,7 +108,7 @@ print()
 phi = 1.148 		# aspect ration from r to r0
 epsilon = 8.85418782 * 10**-12
 k = 25
-D = .0045
+D = .004
 capacitance_from_2018_paper = (8*(2*phi+1)*math.sqrt(phi**2+phi))*epsilon*k*D
 print("capacitance_from_2018_paper: ", capacitance_from_2018_paper)
 cap_reactance = 1/ (2*math.pi*frequency*capacitance_from_2018_paper)
