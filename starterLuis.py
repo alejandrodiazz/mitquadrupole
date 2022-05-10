@@ -20,8 +20,8 @@ h = 15 						# constant dependent on stability region- 1st: 10-20, 2nd:.73-1.43
 # m = 4.981* 10**-25		# 300 amu
 m = 1.66054 * 10**-25		# 100 amu
 # m = 6.64216*10**-26		# 40amu
-m = 1.82659 * 10**-27		# 1.1 amu
-m = 1.66054* 10**-27		# 1 amu
+# m = 1.82659 * 10**-27		# 1.1 amu
+# m = 1.66054* 10**-27		# 1 amu
 
 
 ez = 5 * 1.60218*10**-19	# making assumption of 5 electron volts & convert to joules
@@ -60,6 +60,7 @@ def evaluate(frequency, L, r0, m, e, ez, vz, h, q, a):
 		rf_voltage = (math.pi)**2*q*m/e*frequency**2*r0**2
 		voltages.append(rf_voltage)
 
+	print()
 	# plt.plot(frequencies, voltages, "red")
 	# plt.xlabel("frequency")
 	# plt.ylabel("voltage")
@@ -77,8 +78,11 @@ def evaluate(frequency, L, r0, m, e, ez, vz, h, q, a):
 	# # plt.ylabel("frequency")
 	# plt.show()
 
-
-evaluate(frequency= 2650000, L = .1, r0 = .002, m = m, e=e, ez=ez, vz=vz, h=h, q=q, a=a)
+print()
+evaluate(frequency= 2650000, L = .1, r0 = .002, m = m, e=e, ez=ez, vz=vz, h=h, q=q, a=a) # original
+evaluate(frequency= 2650000, L = .1, r0 = .00175, m = m, e=e, ez=ez, vz=vz, h=h, q=q, a=a) # radius -s equal to 2.25mm
+# evaluate(frequency= 2650000, L = .1, r0 = .002, m = m, e=e, ez=ez, vz=vz, h=h, q=q, a=a) # radius -s equal to 2.25mm
+# evaluate(frequency= 2650000, L = .1, r0 = .002, m = m, e=e, ez=ez, vz=vz, h=h, q=q, a=a) # radius -s equal to 2.25mm
 # evaluate(frequency= 1440000, L = .08, r0 = .002, m = m, e=e, ez=ez, vz=vz, h=h, q=q, a=a)
 
 
