@@ -27,7 +27,7 @@ m_1_1 = 1.82659 * 10**-27		# 1.1 amu
 m_hydrogen1 = 1.66054* 10**-27		# 1.00784 amu
 m_point1 = 1.82659 * 10**-27 - 1.66054* 10**-27
 
-m_argon40 = 6.64216*10**-26		# 39.948amu argon
+m_argon40 = 40		# 39.948amu argon
 m_69 = 1.14577*10**-25
 m_100 = 1.66054 * 10**-25		# 100 amu
 m_119 = 1.976*10**-25
@@ -46,13 +46,16 @@ lengths = list()
 # in Hz and meters
 def evaluate(frequency, L, r0, m, h, q, a):
 
-	ez = 5 * 1.60218*10**-19	# making assumption of 5 electron volts & convert to joules
-	
-	e = 1.60217662*10**-19
+	ez = 5 	# making assumption of 5 electron volts & convert to joules
+	e = 1 						# can be assumed to be positive 1 for most cases
 	vz = 2*(ez/m)**(1/2)		# axial ion velocity
 
 
 	resolution = 1/h*(frequency*(L/vz))**2
+
+	test_resolution = 1/h*((frequency*10**6)*((L*10**-2)/vz))**2
+	print("mass: ", m)
+	print("test_resolution: ", test_resolution)
 	print("resolution: ", resolution)
 	# delta_m = 2*h*ez/(frequency**2*L**2)
 	# m = resolution*delta_m
@@ -132,7 +135,13 @@ print("break")
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_100, h=h, q=q, a=a)
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_argon40+m_point1, h=h, q=q, a=a)
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_100+m_100, h=h, q=q, a=a)		
-evaluate(frequency= 1340000, L = .0734, r0 = .001965, m = m_argon40, h=h, q=q, a=a)
+evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = m_argon40, h=h, q=q, a=a)
+evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 69, h=h, q=q, a=a)
+evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 100, h=h, q=q, a=a)
+evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 119, h=h, q=q, a=a)
+evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 131, h=h, q=q, a=a)
+evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 219, h=h, q=q, a=a)
+evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 264, h=h, q=q, a=a)
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_69, h=h, q=q, a=a)	
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_100, h=h, q=q, a=a)	
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_119, h=h, q=q, a=a)	
@@ -140,8 +149,10 @@ evaluate(frequency= 1340000, L = .0734, r0 = .001965, m = m_argon40, h=h, q=q, a
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_219, h=h, q=q, a=a)	
 
 
-evaluate(frequency= 2530000, L = .0734, r0 = .001965, m = m_argon40, h=h, q=q, a=a)
+# evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = m_argon40, h=h, q=q, a=a)
+# frequency in MHz, mass in amu, r0 in cm
 
+# evaluate(frequency= 2.65, L = 10, r0 = .1965, m = m_argon40, h=h, q=q, a=a)
 
 
 
