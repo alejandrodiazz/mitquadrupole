@@ -1,11 +1,11 @@
+# Alejandro Diaz
+# equations for Quadrupole Mass Spectrometer
+# Resolution and
+# DC and RF amplitudes required
+
 from matplotlib import pyplot as plt
 import numpy as np
-# import pandas as pd
 import math
-# from scipy import stats
-
-
-
 
 
 # 1st stability region
@@ -16,25 +16,6 @@ h = 15 						# constant dependent on stability region- 1st: 10-20, 2nd:.73-1.43
 # a = 3.16
 # q = 3.23
 # h = 1 						# constant dependent on stability region- 1st: 10-20, 2nd:.73-1.43
-
-
-# in kilograms
-# m = 4.981* 10**-25		# 300 amu
-
-
-m_carbon12 = 1.99447*10**-26	# 12.011 amu carbon
-m_1_1 = 1.82659 * 10**-27		# 1.1 amu
-m_hydrogen1 = 1.66054* 10**-27		# 1.00784 amu
-m_point1 = 1.82659 * 10**-27 - 1.66054* 10**-27
-
-m_argon40 = 40		# 39.948amu argon
-m_69 = 1.14577*10**-25
-m_100 = 1.66054 * 10**-25		# 100 amu
-m_119 = 1.976*10**-25
-m_131 = 2.17531*10**-25
-m_219 = 3.6366*10**-25
-
-
 
 
 resolutions = list()
@@ -51,12 +32,14 @@ def evaluate(frequency, L, r0, m, h, q, a):
 	vz = 2*(ez/m)**(1/2)		# axial ion velocity
 
 
-	resolution = 1/h*(frequency*(L/vz))**2
+	# resolution = 1/h*(frequency*(L/vz))**2
 
-	test_resolution = 1/h*((frequency*10**6)*((L*10**-2)/vz))**2
+	# test_resolution = 1/h*(frequency*10**6*L*10**-2)**2*m*1.6605*10**-27/(2*vz)
+	test_resolution2 = 1/h*(frequency*L)**2*m/(2*vz)
 	print("mass: ", m)
-	print("test_resolution: ", test_resolution)
-	print("resolution: ", resolution)
+	# print("test_resolution: ", test_resolution)
+	print("test_resolution2: ", test_resolution2)
+	# print("resolution: ", resolution)
 	# delta_m = 2*h*ez/(frequency**2*L**2)
 	# m = resolution*delta_m
 	rf_voltage = (math.pi)**2*q*m/e*frequency**2*r0**2
@@ -134,14 +117,25 @@ print()
 print("break")
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_100, h=h, q=q, a=a)
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_argon40+m_point1, h=h, q=q, a=a)
-# evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_100+m_100, h=h, q=q, a=a)		
-evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = m_argon40, h=h, q=q, a=a)
-evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 69, h=h, q=q, a=a)
-evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 100, h=h, q=q, a=a)
-evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 119, h=h, q=q, a=a)
-evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 131, h=h, q=q, a=a)
-evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 219, h=h, q=q, a=a)
-evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 264, h=h, q=q, a=a)
+# evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_100+m_100, h=h, q=q, a=a)
+
+
+
+# frequency in MHz, mass in amu, r0 in cm, quadrupole length in cm
+evaluate(frequency= 1.34, L = 7.34, r0 = .1965, m = 40, h=h, q=q, a=a)
+evaluate(frequency= 2.54, L = 7.34, r0 = .1965, m = 40, h=h, q=q, a=a)
+
+
+# evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 40, h=h, q=q, a=a)
+# evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 69, h=h, q=q, a=a)
+# evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 100, h=h, q=q, a=a)
+# evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 119, h=h, q=q, a=a)
+# evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 131, h=h, q=q, a=a)
+# evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 219, h=h, q=q, a=a)
+# evaluate(frequency= 2.53, L = 7.34, r0 = .1965, m = 264, h=h, q=q, a=a)
+
+
+
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_69, h=h, q=q, a=a)	
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_100, h=h, q=q, a=a)	
 # evaluate(frequency= 2530000, L = .0734, r0 = .002, m = m_119, h=h, q=q, a=a)	
